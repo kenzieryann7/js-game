@@ -21,5 +21,7 @@ Goals:
 Issues:
 
 * Having trouble using JavaScript with the bootstrap navs to have local content so I do not need to make separate html pages for the crafting (mining, harvesting, and cooking).
+
+Eventually this game will be available on Kongregate and hopefully Steam.
 v. 1.0
 
