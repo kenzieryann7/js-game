@@ -16,7 +16,10 @@ Goals:
   3. Cooking: cook meals to gain stat increases and to replenish health or mana.
       * This can be worked on after mining and harvesting is put together.
   
-* Attack should allow the user to raid dungeons through a progress bar with the user having access to buttons to heal and make decisions on what they would like to attack. Sort of like a create your own adventure in this mode. 
+* Attack should allow the user to raid dungeons through a progress bar with the user having access to buttons to heal and make decisions on what they would like to attack. Sort of like a create your own adventure in this mode.
+  1. Dungeons: Just a certain number of mobs to fight with a chest at the end (For now).
+  2. Arean: Fight NPC characters and rank up (No online compatability yet).
+  3. Hunting: Allow user to hunt for food items to craft with cooking. 
 
 Issues:
 
