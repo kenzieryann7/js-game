@@ -1,4 +1,4 @@
-# A Game Using JavaScript
+# Incremental Game Using JavaScript
 
 This is an incremental text-based RPG.
 
