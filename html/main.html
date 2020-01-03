@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<script src="../game.js"></script>
 
 <!-- Bootstrap CSS URL-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -35,57 +36,25 @@
                 </div>
         </nav>
 
-  <!-- GOLD (Used to upgrade your character, building, and to buy items) -->
-  <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="increaseGold(5)">Gold</button>
-  <script>
-    function increaseGold(amountG) {
-      var i = document.getElementById('gold').innerHTML;
-      console.log(i);
-      i = parseInt(document.getElementById('gold').innerHTML);
-      console.log(i);
-      var count = 0;
-      document.getElementById('gold').innerHTML = i+amountG;
-      
-      console.log(i);
-      
-    }
-</script> 
+<!-- Gold -->
+<button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="increaseGold(5)">Gold</button>
 
-<p> Gold: <span id="gold">0</span></p>
+<p> Gold: <span id="gold">0</span>
+/ <span id="goldCap">10</span>
+</p>
 
-<!-- ELIXIR (Used to upgrade spells, research, etc) -->
+<!-- Elixir -->
 <button type="button" class="btn btn-info btn-lg ml-3 mt-3" onclick="increaseElixir(5)">Elixir</button>
-<script>
-    function increaseElixir(amountE) {
-      var i = document.getElementById('elixir').innerHTML;
-      console.log(i);
-      i = parseInt(document.getElementById('elixir').innerHTML);
-      console.log(i);
-      var count = 0;
-      document.getElementById('elixir').innerHTML = i+amountE;
-      
-      console.log(i);
-      
-    }
-</script> 
-
 <p> Elixir: <span id="elixir">0</span></p>
 
-<!-- COMBO BUTTON -->
-<button type="button" class="btn btn-info btn-lg ml-3 mt-3" onclick="increaseElixir(10), increaseGold(10)">Combo Button</button>
-<script>
-    function increaseElixir(amount) {
-      var i = document.getElementById('elixir').innerHTML;
-      console.log(i);
-      i = parseInt(document.getElementById('elixir').innerHTML);
-      console.log(i);
-      var count = 0;
-      document.getElementById('elixir').innerHTML = i+amount;
-      
-      console.log(i);
-      
-    }
-</script> 
+<!-- Combo -->
+<button type="button" class="btn btn-success btn-lg ml-3 mt-3" onclick="increaseElixir(10), increaseGold(10)">Combo Button</button>
+
+<!-- Buy Armor -->
+<button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="decreaseGold(5)">Buy Armor</button>
+
+<!-- Gold Capacity -->
+<button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="goldCap()">Increase Gold Capacity</button>
 
 </body>
 
