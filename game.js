@@ -5,6 +5,13 @@ let gold = {
     capElement: null
 };
 
+let elixir = {
+    amount: 0,
+    cap: 100,
+    amountElement: null,
+    capElement: null
+}
+
 // Initializaton
 function initialization() {
     
