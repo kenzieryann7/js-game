@@ -1,20 +1,34 @@
 let gold = {
-    amount: 0
+    amount: 0,
+    cap: 100,
+    amountElement: null,
+    capElement: null
 };
+
+// Initializaton
+function initialization() {
+    
+    gold.amountElement = document.getElementById('gold');
+    gold.capElement = document.getElementById('goldCap');
+    gold.amountElement.innerHTML = gold.amount;
+    gold.capElement.innerHTML = gold.cap;
+    console.log("initialized");
+}
+
 //Increase Gold (Used to upgrade your character, building, and to buy items) 
 function increaseGold(amount) {
-    var i = document.getElementById('gold').innerHTML;
     console.log("Calling increaseGold");
-      
-    i = parseInt(document.getElementById('gold').innerHTML);
+    let tempAmount = gold.amount + amount;
 
-    if(i < 10) {
-        document.getElementById('gold').innerHTML = i+amount;
+    if( tempAmount < gold.cap) {
+        gold.amount = tempAmount;   
     } 
-    if (i >= 10) {
-        document.getElementById('gold').disabled=true;
+
+    if (tempAmount >= gold.cap) {
+        gold.amount = gold.cap;
     }
-      
+    gold.amountElement.innerHTML = gold.amount;
+
     console.log("Increased gold by 5");
       
 }
