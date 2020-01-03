@@ -39,13 +39,15 @@
 <!-- Gold -->
 <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="increaseGold(5)">Gold</button>
 
-<p> Gold: <span id="gold">0</span>
+<p> <br> <b>Gold:</b> <span id="gold">0</span>
 / <span id="goldCap">10</span>
 </p>
 
 <!-- Elixir -->
 <button type="button" class="btn btn-info btn-lg ml-3 mt-3" onclick="increaseElixir(5)">Elixir</button>
-<p> Elixir: <span id="elixir">0</span></p>
+<p> <br ml-3> <b>Elixir:</b> <span id="elixir">0</span>
+  / <span id="elixirCap">10</span>
+</p>
 
 <!-- Combo -->
 <button type="button" class="btn btn-success btn-lg ml-3 mt-3" onclick="increaseElixir(10), increaseGold(10)">Combo Button</button>
@@ -54,7 +56,7 @@
 <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="decreaseGold(5)">Buy Armor</button>
 
 <!-- Gold Capacity -->
-<button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="goldCap()">Increase Gold Capacity</button>
+<button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="increaseGoldCap()">Increase Gold Capacity</button>
 
 </body>
 

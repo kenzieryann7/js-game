@@ -14,11 +14,17 @@ let elixir = {
 
 // Initializaton
 function initialization() {
-    
+    // GOLD 
     gold.amountElement = document.getElementById('gold');
     gold.capElement = document.getElementById('goldCap');
     gold.amountElement.innerHTML = gold.amount;
     gold.capElement.innerHTML = gold.cap;
+    // ELIXIR
+    elixir.amountElement = document.getElementById('elixir');
+    elixir.capElement = document.getElementById('elixirCap');
+    elixir.amountElement.innerHTML = elixir.amount;
+    elixir.capElement.innerHTML = elixir.cap;
+
     console.log("initialized");
 }
 
@@ -39,30 +45,40 @@ function increaseGold(amount) {
     console.log("Increased gold by 5");
       
 }
+
 // Decrease Gold
 function decreaseGold(amount) {
-    var i = document.getElementById('gold').innerHTML;
+    
     console.log("Calling decreaseGold");
       
-    i = parseInt(document.getElementById('gold').innerHTML);
-    
-    if (i >= 5) {
-        document.getElementById('gold').innerHTML = i-amount;
+    let tempAmount = gold.amount - amount;
+
+    if( tempAmount < gold.cap) {
+        gold.amount = tempAmount;   
+    } 
+
+    if (tempAmount >= gold.cap) {
+        gold.amount = gold.cap;
     }
-    else {
-        alert("You do not have enough gold!")
-    }
+    gold.amountElement.innerHTML = gold.amount;
+
     console.log("Decreased gold by 5");
       
 }
 
 // ELIXIR (Used to upgrade spells, research, etc) 
 function increaseElixir(amount) {
-    var i = document.getElementById('elixir').innerHTML;
     console.log("Calling increaseElixir");
-    i = parseInt(document.getElementById('elixir').innerHTML);
+    let tempAmount = elixir.amount + amount;
 
-    document.getElementById('elixir').innerHTML = i+amount;
+    if( tempAmount < elixir.cap) {
+        elixir.amount = tempAmount;   
+    } 
+
+    if (tempAmount >= elixir.cap) {
+        elixir.amount = elixir.cap;
+    }
+    elixir.amountElement.innerHTML = elixir.amount;
       
     console.log("Increased elixir by 5");
       
@@ -101,15 +117,21 @@ function buyArmor(amount) {
 
 // INCREASE GOLD CAPACITY
 function increaseGoldCap(amount) {
-    var currentAmount = document.getElementById('goldCap').innerHTML;
+    
     console.log("Calling goldCap function");
     
-    currentAmount = parseInt(document.getElementById('goldCap').innerHTML);
-    
-    if (i === amount) {
-        document.getElementById('gold').innerHTML = currentAmount-amount;
-        document.getElementById('goldCap').innerHTML = i*2;
+    var tempCap = 0;
+    let tempAmount = gold.amount + amount;
+
+    if (gold.cap = tempAmount) {
+
+        tempAmount = gold.amount - amount;
+        tempCap = gold.cap * gold.cap;
+        
     }
+    console.log(gold.cap);
+    gold.amountElement.innerHTML = 0;
+    gold.capElement.innerHTML = gold.cap;
       
     console.log("Increase gold capacity");
     
