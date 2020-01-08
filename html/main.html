@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 
 <!-- JS Files -->
+<!-- Data Folder-->
+<script src="../data/resources.js"></script>
+<!-- JS Folder-->
 <script src="../js/game.js"></script>
-<script src="../js/skill.js"></script>
+<script src="../js/skill-functions.js"></script>
+<script src="../js/resource-functions.js"></script>
 
 <!-- Bootstrap CSS URL-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <!-- CSS -->
 <style>
+        h1 {
+          font-family: candara;
+        }
+        p {
+          font-family: candara;
+        }
+        a {
+          font-family: candara;
+        }
+        button {
+          font-family: candara;
+        }
         body {
           background-color: slategray;
         }
@@ -22,10 +38,10 @@
 
 </head>
 
-<body onload="initialization(), initializationSkills()">
+<body onload="initialization()">
         <!-- MAIN NAV BAR -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="index.html">Adventure RPG</a>
+                <a class="navbar-brand" href="index.html"><h1>Risen RPG</h1></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>

@@ -1,18 +1,3 @@
-// CURRENCY OBJECTS
-let gold = {
-    amount: 0,
-    cap: 100,
-    amountElement: null,
-    capElement: null
-};
-
-let skill = {
-    amount: 0,
-    cap: 5,
-    amountElement: null,
-    capElement: null
-};
-
 // Initializaton
 function initialization() {
     // GOLD 
@@ -20,160 +5,40 @@ function initialization() {
     gold.capElement = document.getElementById('goldCap');
     gold.amountElement.innerHTML = gold.amount;
     gold.capElement.innerHTML = gold.cap;
+
     // SKILL POINTS
     skill.amountElement = document.getElementById('skill');
     skill.capElement = document.getElementById('skillCap');
     skill.amountElement.innerHTML = skill.amount;
     skill.capElement.innerHTML = skill.cap;
 
-    console.log("initialized currency");
-}
-
-//INCREASE GOLD (Used to upgrade your character, building, and to buy items) 
-function increaseGold(amount) {
-    console.log("Calling increaseGold");
-    let tempAmount = gold.amount + amount;
-
-    if( tempAmount < gold.cap) {
-        gold.amount = tempAmount;   
-    } 
-
-    if (tempAmount >= gold.cap) {
-        gold.amount = gold.cap;
-    }
-    gold.amountElement.innerHTML = gold.amount;
-
-    console.log("Increased gold by 5");
-      
-}
-
-// DECREASE GOLD
-function decreaseGold(amount) {
+    // HEALTH SKILL  
+    health.amountElement = document.getElementById('health');
+    health.amountElement.innerHTML = health.amount;
     
-    console.log("Calling decreaseGold");
-      
-    let tempAmount = gold.amount - amount;
+    // STRENGTH SKILL  
+    strength.amountElement = document.getElementById('strength');
+    strength.amountElement.innerHTML = strength.amount;
 
-    if( tempAmount < gold.cap) {
-        gold.amount = tempAmount;   
-    } 
-
-    if (tempAmount >= gold.cap) {
-        gold.amount = gold.cap;
-    }
-    gold.amountElement.innerHTML = gold.amount;
-
-    console.log("Decreased gold by 5");
-      
-}
-
-// INCREASE SKILL POINTS (Skill points are earned by leveling up and are used to spend on the skill tree)
-function increaseSkill(amount) {
-    console.log("Calling increaseSkill");
-    let tempAmount = skill.amount + amount;
-
-    if( tempAmount < skill.cap) {
-        skill.amount = tempAmount;   
-    } 
-
-    if (tempAmount >= skill.cap) {
-        skill.amount = skill.cap;
-    }
-    skill.amountElement.innerHTML = skill.amount;
-      
-    console.log("Increased skill by 5");
-      
-}
-
-// DECREASE SKILL POINTS
-function decreaseSkill(amount) {
+    // STAMINA SKILL  
+    stamina.amountElement = document.getElementById('stamina');
+    stamina.amountElement.innerHTML = stamina.amount;
     
-    console.log("Calling decreaseSkill");
-      
-    let tempAmount = skill.amount - amount;
+    // DEFENSE SKILL  
+    defense.amountElement = document.getElementById('defense');
+    defense.amountElement.innerHTML = defense.amount;
 
-    if( tempAmount < skill.cap) {
-        skill.amount = tempAmount;   
-    } 
-
-    if (tempAmount >= skill.cap) {
-        skill.amount = skill.cap;
-    }
+    // STONE  
+    health.amountElement = document.getElementById('health');
+    health.amountElement.innerHTML = health.amount;
     
-    skill.amountElement.innerHTML = skill.amount;
+    // WOOD  
+    strength.amountElement = document.getElementById('strength');
+    strength.amountElement.innerHTML = strength.amount;
 
-    console.log("Decreased skill point by 1");
-      
-}
+    // METAL 
+    stamina.amountElement = document.getElementById('stamina');
+    stamina.amountElement.innerHTML = stamina.amount;
 
-// COMBO BUTTON 
-function combo(amount) {
-  var i = document.getElementById('combo').innerHTML;
-  console.log("Calling combo");
-  i = parseInt(document.getElementById('combo').innerHTML);
-
-  document.getElementById('combo').innerHTML = i+amount;
-      
-  console.log("Increased gold and elixir by 10");
-      
-}
-
-// *** BUY/USE ***
-
-// BUY ARMOR
-function buyArmor(amount) {
-    var i = document.getElementById('buy').innerHTML;
-    console.log("Calling buy function");
-      
-    i = parseInt(document.getElementById('buy').innerHTML);
-
-    if(i < 10) {
-        document.getElementById('buy').innerHTML = i-amount;
-    } 
-    if (i >= 10) {
-        document.getElementById('buy').disabled=true;
-    }
-      
-    console.log("Bought armor for 5 gold");
-    
-}
-
-// USE SKILL POINTS
-function spendSkills(amount) {
-    var i = document.getElementById('spendSkill').innerHTML;
-    console.log("Calling spendSkill function");
-      
-    i = parseInt(document.getElementById('spendSkill').innerHTML);
-
-    if(i < 5) {
-        document.getElementById('spendSkill').innerHTML = i-amount;
-    } 
-    if (i >= 5) {
-        document.getElementById('spendSkill').disabled=true;
-    }
-      
-    console.log("Spent one skill point");
-    
-}
-
-// INCREASE GOLD CAPACITY
-function increaseGoldCap(amount) {
-    
-    console.log("Calling goldCap function");
-    
-    var tempCap = 0;
-    let tempAmount = gold.amount + amount;
-
-    if (gold.cap = tempAmount) {
-
-        tempAmount = gold.amount - amount;
-        tempCap = gold.cap * gold.cap;
-        
-    }
-    console.log(gold.cap);
-    gold.amountElement.innerHTML = 0;
-    gold.capElement.innerHTML = gold.cap;
-      
-    console.log("Increase gold capacity");
-    
+    console.log("initialized");
 }
