@@ -146,3 +146,4 @@ function increaseGoldCap(amount) {
     console.log("Increase gold capacity");
     
 }
+

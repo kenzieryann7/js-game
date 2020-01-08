@@ -47,3 +47,28 @@ function increaseDefense() {
     console.log("Increased defense by 1");
       
 }
+
+// USE SKILL POINTS
+function buySkillPoint() {
+
+    console.log("Calling buySkillPoint");
+
+    const price = 1;
+
+    if (skill.amount < price) {
+        return false;
+    }
+
+    if (skill.amount >= 1){
+        skill -= price;
+        increaseHealth();
+    }
+    
+    // Left off here. Having issues with skill registering as a DOM element and updating.
+    document.getElementById('skill').innerHTML = skill.amount;
+    health.amountElement.innerHTML = health.amount;
+
+    
+
+    console.log("Spent 1 skill point");
+}
