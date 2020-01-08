@@ -1,4 +1,4 @@
-let gold = {
+ let gold = {
     amount: 0,
     cap: 100,
     amountElement: null,
