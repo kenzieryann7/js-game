@@ -1,16 +1,17 @@
- let gold = {
+// CURRENCY OBJECTS
+let gold = {
     amount: 0,
     cap: 100,
     amountElement: null,
     capElement: null
 };
 
-let elixir = {
+let skill = {
     amount: 0,
-    cap: 100,
+    cap: 5,
     amountElement: null,
     capElement: null
-}
+};
 
 // Initializaton
 function initialization() {
@@ -19,16 +20,16 @@ function initialization() {
     gold.capElement = document.getElementById('goldCap');
     gold.amountElement.innerHTML = gold.amount;
     gold.capElement.innerHTML = gold.cap;
-    // ELIXIR
-    elixir.amountElement = document.getElementById('elixir');
-    elixir.capElement = document.getElementById('elixirCap');
-    elixir.amountElement.innerHTML = elixir.amount;
-    elixir.capElement.innerHTML = elixir.cap;
+    // SKILL POINTS
+    skill.amountElement = document.getElementById('skill');
+    skill.capElement = document.getElementById('skillCap');
+    skill.amountElement.innerHTML = skill.amount;
+    skill.capElement.innerHTML = skill.cap;
 
-    console.log("initialized");
+    console.log("initialized currency");
 }
 
-//Increase Gold (Used to upgrade your character, building, and to buy items) 
+//INCREASE GOLD (Used to upgrade your character, building, and to buy items) 
 function increaseGold(amount) {
     console.log("Calling increaseGold");
     let tempAmount = gold.amount + amount;
@@ -46,7 +47,7 @@ function increaseGold(amount) {
       
 }
 
-// Decrease Gold
+// DECREASE GOLD
 function decreaseGold(amount) {
     
     console.log("Calling decreaseGold");
@@ -66,24 +67,44 @@ function decreaseGold(amount) {
       
 }
 
-// ELIXIR (Used to upgrade spells, research, etc) 
-function increaseElixir(amount) {
-    console.log("Calling increaseElixir");
-    let tempAmount = elixir.amount + amount;
+// INCREASE SKILL POINTS (Skill points are earned by leveling up and are used to spend on the skill tree)
+function increaseSkill(amount) {
+    console.log("Calling increaseSkill");
+    let tempAmount = skill.amount + amount;
 
-    if( tempAmount < elixir.cap) {
-        elixir.amount = tempAmount;   
+    if( tempAmount < skill.cap) {
+        skill.amount = tempAmount;   
     } 
 
-    if (tempAmount >= elixir.cap) {
-        elixir.amount = elixir.cap;
+    if (tempAmount >= skill.cap) {
+        skill.amount = skill.cap;
     }
-    elixir.amountElement.innerHTML = elixir.amount;
+    skill.amountElement.innerHTML = skill.amount;
       
-    console.log("Increased elixir by 5");
+    console.log("Increased skill by 5");
       
 }
 
+// DECREASE SKILL POINTS
+function decreaseSkill(amount) {
+    
+    console.log("Calling decreaseSkill");
+      
+    let tempAmount = skill.amount - amount;
+
+    if( tempAmount < skill.cap) {
+        skill.amount = tempAmount;   
+    } 
+
+    if (tempAmount >= skill.cap) {
+        skill.amount = skill.cap;
+    }
+    
+    skill.amountElement.innerHTML = skill.amount;
+
+    console.log("Decreased skill point by 1");
+      
+}
 
 // COMBO BUTTON 
 function combo(amount) {
@@ -97,7 +118,9 @@ function combo(amount) {
       
 }
 
-// BUY
+// *** BUY/USE ***
+
+// BUY ARMOR
 function buyArmor(amount) {
     var i = document.getElementById('buy').innerHTML;
     console.log("Calling buy function");
@@ -112,6 +135,24 @@ function buyArmor(amount) {
     }
       
     console.log("Bought armor for 5 gold");
+    
+}
+
+// USE SKILL POINTS
+function spendSkills(amount) {
+    var i = document.getElementById('spendSkill').innerHTML;
+    console.log("Calling spendSkill function");
+      
+    i = parseInt(document.getElementById('spendSkill').innerHTML);
+
+    if(i < 5) {
+        document.getElementById('spendSkill').innerHTML = i-amount;
+    } 
+    if (i >= 5) {
+        document.getElementById('spendSkill').disabled=true;
+    }
+      
+    console.log("Spent one skill point");
     
 }
 
