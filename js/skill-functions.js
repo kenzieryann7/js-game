@@ -23,6 +23,6 @@ function buySkillPoint( skill ) {
 
     // Increasing skills
     skill.amount += 1;
-    skill.amountElement.innerHTML = skill.amount;
+    skill.amountElement.value = skill.amount;
 }
 

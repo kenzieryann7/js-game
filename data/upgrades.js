@@ -1,4 +1,4 @@
-// Upgradables
+// Upgradable Objects
 
 let health = {
     amount: 0,

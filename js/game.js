@@ -14,31 +14,27 @@ function initialization() {
 
     // HEALTH SKILL  
     health.amountElement = document.getElementById('health');
-    health.amountElement.innerHTML = health.amount;
-    
+    health.amountElement.value = health.amount;
+
     // STRENGTH SKILL  
     strength.amountElement = document.getElementById('strength');
-    strength.amountElement.innerHTML = strength.amount;
+    strength.amountElement.value = strength.amount;
 
     // STAMINA SKILL  
     stamina.amountElement = document.getElementById('stamina');
-    stamina.amountElement.innerHTML = stamina.amount;
+    stamina.amountElement.value = stamina.amount;
     
     // DEFENSE SKILL  
     defense.amountElement = document.getElementById('defense');
-    defense.amountElement.innerHTML = defense.amount;
+    defense.amountElement.value = defense.amount;
 
-    // STONE  
-    health.amountElement = document.getElementById('health');
-    health.amountElement.innerHTML = health.amount;
+    // EXPERIENCE
+    experience.currentElement = document.getElementById('currentXP');
+    experience.capElement = document.getElementById('capXP');
+    experience.characterLevelElement = document.getElementById('characterLevel');
+    //experience.amountElement.innerHTML = experience.amount;
+    renderExperience();
+
     
-    // WOOD  
-    strength.amountElement = document.getElementById('strength');
-    strength.amountElement.innerHTML = strength.amount;
-
-    // METAL 
-    stamina.amountElement = document.getElementById('stamina');
-    stamina.amountElement.innerHTML = stamina.amount;
-
     console.log("initialized");
 }

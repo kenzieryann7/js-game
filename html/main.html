@@ -3,10 +3,13 @@
 <!-- JS Files -->
 <!-- Data Folder-->
 <script src="../data/resources.js"></script>
+<script src="../data/upgrades.js"></script>
+<script src="../data/experience.js"></script>
 <!-- JS Folder-->
 <script src="../js/game.js"></script>
 <script src="../js/skill-functions.js"></script>
 <script src="../js/resource-functions.js"></script>
+<script src="../js/experience-functions.js"></script>
 
 <!-- Bootstrap CSS URL-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -66,6 +69,12 @@
                 </div>
         </nav>
 
+<!-- Character Level -->
+<p class="ml-3"> <br> 
+  <b>Character Level:</b> <span id="characterLevel">0</span> <br>
+  <span id="currentXP">0</span> / <span id="capXP">10</span> 
+  <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="increaseExperience(5)">XP</button>
+</p>
 <!-- Gold -->
 <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="increaseGold(5)">Gold</button>
 
@@ -81,60 +90,59 @@
 
 <hr>
 
-<div class="row">
+<!-- Skills -->
+<div class="row ml-1">
   <div class="col-2">
       <div class="input-group mb-3">
           <div class="input-group-prepend">
-              <span class="input-group-text alert-dark skill-label id="">Health</span>
+              <span class="input-group-text alert-dark skill-label" id="">Health</span>
           </div>
-          <input type="text" placeholder=0 class="form-control" readonly>
+          <input type="text" placeholder=0 class="form-control" id="health" value="0" readonly>
           <div class="input-group-append">
-            <button class="btn btn-primary" type="button">+</button>
+            <button class="btn btn-primary" type="button" onclick="buySkillPoint(health)">+</button>
+          </div>
+          
+
+          <div class="input-group-prepend">
+              <span class="input-group-text alert-dark skill-label" id="">Strength</span>
+          </div>
+          <input type="text" placeholder=0 class="form-control" id="strength" value="0" readonly>
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button" onclick="buySkillPoint(strength)">+</button>
           </div>
 
           <div class="input-group-prepend">
-              <span class="input-group-text alert-dark skill-label " id="">Strength</span>
+              <span class="input-group-text alert-dark skill-label" id="">Stamina</span>
           </div>
-          <input type="text" placeholder=0 class="form-control" readonly>
+          <input type="text" placeholder=0 class="form-control" id="stamina" value="0" readonly>
           <div class="input-group-append">
-            <button class="btn btn-primary" type="button">+</button>
+            <button class="btn btn-primary" type="button" onclick="buySkillPoint(stamina)">+</button>
           </div>
 
           <div class="input-group-prepend">
-              <span class="input-group-text alert-dark skill-label " id="">Stamina</span>
+              <span class="input-group-text alert-dark skill-label" id="">Defense</span>
           </div>
-          <input type="text" placeholder=0 class="form-control" readonly>
+          <input type="text" placeholder=0 class="form-control" id="defense" value="0" readonly>
           <div class="input-group-append">
-            <button class="btn btn-primary" type="button">+</button>
+            <button class="btn btn-primary" type="button" onclick="buySkillPoint(defense)">+</button>
           </div>
-
-          <div class="input-group-prepend">
-              <span class="input-group-text alert-dark skill-label " id="">Defense</span>
-          </div>
-          <input type="text" placeholder=0 class="form-control" readonly>
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">+</button>
-          </div>
-        </div>
-
-
-    
+      </div>
   </div>
-  <div class="col">
-
-    </div>
 </div>
+
 <!-- Health Skill-->
+<!--
 <p class="ml-3"> <br> <b>Health:</b> <span id="health">0</span> <button type="button" class="btn btn-warning btn-sm ml-3 mt-3" onclick="buySkillPoint(health)">+</button></p> 
 
-<!-- Strength Skill-->
+
 <p class="ml-3"> <br> <b>Strength:</b> <span id="strength">0</span> <button type="button" class="btn btn-warning btn-sm ml-3 mt-3" onclick="buySkillPoint(strength)">+</button></p>
 
-<!-- Stamina Skill-->
+
 <p class="ml-3"> <br> <b>Stamina:</b> <span id="stamina">0</span> <button type="button" class="btn btn-warning btn-sm ml-3 mt-3" onclick="buySkillPoint(stamina)">+</button></p>
 
-<!-- Defense Skill-->
+
 <p class="ml-3"> <br> <b>Defense:</b> <span id="defense">0</span> <button type="button" class="btn btn-warning btn-sm ml-3 mt-3" onclick="buySkillPoint(defense)">+</button></p>
+-->
 
 <!-- Combo -->
 <button type="button" class="btn btn-success btn-lg ml-3 mt-3" onclick="increaseSkill(10), increaseGold(10)">Combo Button</button>
@@ -145,13 +153,6 @@
 <!-- Gold Capacity -->
 <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="increaseGoldCap()">Increase Gold Capacity</button>
 
-<div class="container">
-  <div class="row">
-    <div class="col">
-      
-    </div>
-  </div>
-</div>
 </body>
 
 </html>
