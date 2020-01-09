@@ -41,16 +41,16 @@ function decreaseGold(amount) {
 // INCREASE SKILL POINTS (Skill points are earned by leveling up and are used to spend on the skill tree)
 function increaseSkill(amount) {
     console.log("Calling increaseSkill");
-    let tempAmount = skill.amount + amount;
+    let tempAmount = skillPoint.amount + amount;
 
-    if( tempAmount < skill.cap) {
-        skill.amount = tempAmount;   
+    if( tempAmount < skillPoint.cap) {
+        skillPoint.amount = tempAmount;   
     } 
 
-    if (tempAmount >= skill.cap) {
-        skill.amount = skill.cap;
+    if (tempAmount >= skillPoint.cap) {
+        skillPoint.amount = skillPoint.cap;
     }
-    skill.amountElement.innerHTML = skill.amount;
+    skillPoint.amountElement.innerHTML = skillPoint.amount;
       
     console.log("Increased skill by 5");
       
@@ -61,15 +61,15 @@ function decreaseSkill(amount) {
     
     console.log("Calling decreaseSkill");
       
-    let tempAmount = skill.amount - amount;
+    let tempAmount = skillPoint.amount - amount;
 
     if( tempAmount < 0) {
-        skill.amount = tempAmount;
+        skillPoint.amount = tempAmount;
         
         return false;   
     } 
     
-    skill.amountElement.innerHTML = skill.amount;
+    skillPoint.amountElement.innerHTML = skillPoint.amount;
 
     console.log("Decreased skill point by 1");
       

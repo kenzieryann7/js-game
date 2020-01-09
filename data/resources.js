@@ -6,7 +6,7 @@ let gold = {
     capElement: null
 };
 
-let skill = {
+let skillPoint = {
     amount: 0,
     cap: 5,
     amountElement: null,

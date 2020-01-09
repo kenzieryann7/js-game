@@ -69,23 +69,23 @@
 
 <!-- Skill Points -->
 <button type="button" class="btn btn-info btn-lg ml-3 mt-3" onclick="increaseSkill(5)">Skill Point</button>
-<p class="ml-3"> <br ml-3> <b>Skill Points:</b> <span id="skill">0</span>
+<p class="ml-3"> <br ml-3> <b>Skill Points:</b> <span id="skillPoint">0</span>
   / <span id="skillCap">10</span>
 </p>
 
 <hr>
 
 <!-- Health Skill-->
-<p class="ml-3"> <br> <b>Health:</b> <span id="health">0</span> <button type="button" class="btn btn-warning btn-sm ml-3 mt-3" onclick="buySkillPoint(health)">+</button></p> 
+<p class="ml-3"> <br> <b>Health:</b> <span id="health">0</span> <button type="button" id="addHealth" class="btn btn-warning btn-sm ml-3 mt-3" onclick="buySkillPoint(health)">+</button></p> 
 
 <!-- Strength Skill-->
-<p class="ml-3"> <br> <b>Strength:</b> <span id="strength">0</span> <button type="button" class="btn btn-warning btn-sm ml-3 mt-3" onclick="increaseStrength(1), decreaseSkill(1)">+</button></p>
+<p class="ml-3"> <br> <b>Strength:</b> <span id="strength">0</span> <button type="button" class="btn btn-warning btn-sm ml-3 mt-3" onclick="buySkillPoint(strength)">+</button></p>
 
 <!-- Stamina Skill-->
-<p class="ml-3"> <br> <b>Stamina:</b> <span id="stamina">0</span> <button type="button" class="btn btn-warning btn-sm ml-3 mt-3" onclick="increaseStamina(1), decreaseSkill(1)">+</button></p>
+<p class="ml-3"> <br> <b>Stamina:</b> <span id="stamina">0</span> <button type="button" class="btn btn-warning btn-sm ml-3 mt-3" onclick="buySkillPoint(stamina)">+</button></p>
 
 <!-- Defense Skill-->
-<p class="ml-3"> <br> <b>Defense:</b> <span id="defense">0</span> <button type="button" class="btn btn-warning btn-sm ml-3 mt-3" onclick="increaseDefense(1), decreaseSkill(1)">+</button></p>
+<p class="ml-3"> <br> <b>Defense:</b> <span id="defense">0</span> <button type="button" class="btn btn-warning btn-sm ml-3 mt-3" onclick="buySkillPoint(defense)">+</button></p>
 
 <!-- Combo -->
 <button type="button" class="btn btn-success btn-lg ml-3 mt-3" onclick="increaseSkill(10), increaseGold(10)">Combo Button</button>

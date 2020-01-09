@@ -7,10 +7,10 @@ function initialization() {
     gold.capElement.innerHTML = gold.cap;
 
     // SKILL POINTS
-    skill.amountElement = document.getElementById('skill');
-    skill.capElement = document.getElementById('skillCap');
-    skill.amountElement.innerHTML = skill.amount;
-    skill.capElement.innerHTML = skill.cap;
+    skillPoint.amountElement = document.getElementById('skillPoint');
+    skillPoint.capElement = document.getElementById('skillCap');
+    skillPoint.amountElement.innerHTML = skillPoint.amount;
+    skillPoint.capElement.innerHTML = skillPoint.cap;
 
     // HEALTH SKILL  
     health.amountElement = document.getElementById('health');
