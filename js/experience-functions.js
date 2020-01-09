@@ -22,6 +22,7 @@ function renderExperience() {
     console.log("Called renderExperience");
     const level = getCharacterLevel(experience.amount);
 
+    
 
 
 
