@@ -41,6 +41,13 @@
         .skill-label {
           width: 100px;
         }
+        .stat-label {
+          width: 150px;
+        }
+        #input-size {
+          width: 150px
+        }
+       
 </style>
 
 <head>
@@ -86,53 +93,109 @@
 </p>
 
 <!-- Skill Points -->
-<button type="button" class="btn btn-info btn-lg ml-3 mt-3" onclick="increaseSkill(5)">Skill Point</button>
-<p class="ml-3"> <br ml-3> <b>Skill Points:</b> <span id="skillPoint">0</span>
-  / <span id="skillCap">10</span>
-</p>
 
-<hr>
-
-<!-- Skills -->
-<div class="row ml-1">
+<div class="row ml-2">
   <div class="col-2">
-      <div class="input-group mb-3">
-          <div class="input-group-prepend">
-              <span class="input-group-text alert-dark skill-label" id="">Health</span>
-          </div>
-          <input type="text" placeholder=0 class="form-control" id="health" value="0" readonly>
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button" onclick="buySkillPoint(health)">+</button>
-          </div>
-          
-
-          <div class="input-group-prepend">
-              <span class="input-group-text alert-dark skill-label" id="">Strength</span>
-          </div>
-          <input type="text" placeholder=0 class="form-control" id="strength" value="0" readonly>
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button" onclick="buySkillPoint(strength)">+</button>
-          </div>
-
-          <div class="input-group-prepend">
-              <span class="input-group-text alert-dark skill-label" id="">Stamina</span>
-          </div>
-          <input type="text" placeholder=0 class="form-control" id="stamina" value="0" readonly>
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button" onclick="buySkillPoint(stamina)">+</button>
-          </div>
-
-          <div class="input-group-prepend">
-              <span class="input-group-text alert-dark skill-label" id="">Defense</span>
-          </div>
-          <input type="text" placeholder=0 class="form-control" id="defense" value="0" readonly>
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button" onclick="buySkillPoint(defense)">+</button>
-          </div>
-      </div>
+    <button type="button" class="btn btn-info btn-lg ml-3 mt-3" onclick="increaseSkill(5)">Skill Point</button>
+<span class="d-block p-2 bg-dark text-white text-center"><b>Skill Points:</b> <span id="skillPoint">0</span>
+/ <span id="skillCap">10</span>
+</span>
+<!-- Skills -->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text alert-dark skill-label" id="">Health</span>
+            </div>
+            <input type="text" placeholder=0 class="form-control" id="health" value="0" readonly>
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button" onclick="buySkillPoint(health)">+</button>
+            </div>
+            
+  
+            <div class="input-group-prepend">
+                <span class="input-group-text alert-dark skill-label" id="">Strength</span>
+            </div>
+            <input type="text" placeholder=0 class="form-control" id="strength" value="0" readonly>
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button" onclick="buySkillPoint(strength)">+</button>
+            </div>
+  
+            <div class="input-group-prepend">
+                <span class="input-group-text alert-dark skill-label" id="">Stamina</span>
+            </div>
+            <input type="text" placeholder=0 class="form-control" id="stamina" value="0" readonly>
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button" onclick="buySkillPoint(stamina)">+</button>
+            </div>
+  
+            <div class="input-group-prepend">
+                <span class="input-group-text alert-dark skill-label" id="">Defense</span>
+            </div>
+            <input type="text" placeholder=0 class="form-control" id="defense" value="0" readonly>
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button" onclick="buySkillPoint(defense)">+</button>
+            </div>
+        </div>
+    </div>
+  </div>
   </div>
 </div>
+<hr>
 
+<!-- Stats -->
+<div class="row ml-1">
+  <div class="col-2">
+    <span class="d-block p-2 bg-dark text-white text-center">Character Stats</span>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text alert-dark skill-label" id="">Total XP</span>
+        </div>
+        <input type="text" placeholder=0 class="form-control" id="currentXP" readonly>
+
+        <div class="input-group-prepend">
+            <span class="input-group-text alert-dark skill-label" id="">Age</span>
+        </div>
+        <input type="text" placeholder=0 class="form-control" id="currentXP" readonly>
+
+        <div class="input-group-prepend">
+            <span class="input-group-text alert-dark skill-label" id="">Health</span>
+        </div>
+        <input type="text" placeholder=0 class="form-control" id="health" value="0" readonly>
+
+        <div class="input-group-prepend">
+            <span class="input-group-text alert-dark skill-label" id="">Strength</span>
+        </div>
+        <input type="text" placeholder=0 class="form-control" id="strength" value="0" readonly>
+
+        <div class="input-group-prepend">
+            <span class="input-group-text alert-dark skill-label" id="">Stamina</span>
+        </div>
+        <input type="text" placeholder=0 class="form-control" id="stamina" value="0" readonly>
+
+        <div class="input-group-prepend">
+            <span class="input-group-text alert-dark skill-label" id="">Defense</span>
+        </div>
+        <input type="text" placeholder=0 class="form-control" id="defense" value="0" readonly>
+
+    </div>
+  </div>
+  <div class="col-2">
+    <span class="d-block p-2 bg-dark text-white text-center">Battle Stats</span>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text alert-dark skill-label" id="">Total Mobs Killed</span>
+        </div>
+        <input type="text" placeholder=0 class="form-control" id="" readonly>
+        <div class="input-group-prepend">
+            <span class="input-group-text alert-dark skill-label" id="">Total Dungeons Completed</span>
+        </div>
+        <input type="text" placeholder=0 class="form-control" id="" readonly>
+        <div class="input-group-prepend">
+            <span class="input-group-text alert-dark skill-label" id="">Dungeon Level</span>
+        </div>
+        <input type="text" placeholder=0 class="form-control" id="" readonly>
+    </div>
+  </div>
+</div>
 <!-- Combo -->
 <button type="button" class="btn btn-success btn-lg ml-3 mt-3" onclick="increaseSkill(10), increaseGold(10)">Combo Button</button>
 

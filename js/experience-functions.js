@@ -47,7 +47,8 @@ function getCapFloor(level) { //log
 }
 
 function newCap(cap) {
-    cap = Math.pow(cap, 1.16);
+    cap = cap * Math.LN10;
+    //cap = Math.pow(cap, 1.16);
     cap = Math.round(cap);
     return cap;
 }
