@@ -47,6 +47,10 @@
         #input-size {
           width: 150px
         }
+        #percentage {
+          color: black;
+          font-weight: bold;
+        }
        
 </style>
 
@@ -78,7 +82,8 @@
 
 <!-- XP Bar-->
 <div class="progress">
-  <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" id="XPBar"></div>
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" id="XPBar" style="width:0px"></div>
+  <span id="percentage" class="justify-content-center d-flex position-absolute w-100"></span>
 </div>
 
 <!-- Character Level -->

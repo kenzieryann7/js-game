@@ -84,8 +84,23 @@ function renderExperience() {
     
 }
 
-function progressXPBar(rawPercent) {
-    console.log("XP Percent:", rawPercent);
+function progressXPBar(newPercent) {
+    console.log("XP Percent:", newPercent);
+
+    currentPercentage = document.getElementById("XPBar").style.width;
+    console.log(currentPercentage);
+    currentPercentage = parseInt(currentPercentage);
+    if (currentPercentage == 100 || newPercent > currentPercentage) {
+        document.getElementById("XPBar").style.width = newPercent+'%';
+
+    } else {
+        document.getElementById("XPBar").style.width = 100+'%';
+        setTimeout(function (){
+            progressXPBar(newPercent);
+        }, 1000)
+    }
+
     console.log( document.getElementById("XPBar").style.width );
-    document.getElementById("XPBar").style.width = rawPercent+'%';
+    document.getElementById("percentage").innerHTML = Math.round(newPercent)+'%';
+    
 }
