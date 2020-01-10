@@ -1,7 +1,7 @@
 const capBase = 100;
 
 function getCharacterLevel(amount) {
-    console.log("Calling getCharacterLevel");
+    //console.log("Calling getCharacterLevel");
 
     let level = 1;
     let cap = capBase;
@@ -11,14 +11,14 @@ function getCharacterLevel(amount) {
         amount -= cap;
         cap = newCap(cap);
     }
-    console.log("Level:", level);
+    //console.log("Level:", level);
 
     return level;
       
 }
 
-function getCap(amount) {
-    console.log("Calling getCharacterLevel");
+function getCap(amount) { //byXP
+    //console.log("Calling getCharacterLevel");
     let cap = capBase;
 
     while (amount >= cap) {
@@ -30,26 +30,33 @@ function getCap(amount) {
       
 }
 
-function getCapFloor(level) { //log
-    console.log("Calling getCharacterLevel");
+function getCapByLevel(level) { //log
+    //console.log("Calling getCharacterLevel");
+
+    let runningCapTotal = 0;
+
     let cap = capBase;
 
     if(level == 0 ) {
-        cap = 0;
+       return 0;
     }
 
+    runningCapTotal = cap;
+
     for(let i = 1; i < level; i += 1 ) {
-        cap += newCap(cap);
+        cap = newCap(cap);
+        runningCapTotal += cap;
     }
     
-    return cap;
+    return runningCapTotal;
       
 }
 
-function newCap(cap) {
-    cap = cap * Math.LN10;
-    //cap = Math.pow(cap, 1.16);
+function newCap(_cap) {
+    //cap = cap * Math.LN10;
+    let cap = Math.pow(_cap, 1.16); 
     cap = Math.round(cap);
+    console.log("Cap: " + _cap + " > " + cap);
     return cap;
 }
 
@@ -61,17 +68,24 @@ function increaseExperience(amount) {
 
 function renderExperience() {
 
-    console.log("Called renderExperience");
+    //console.log("Called renderExperience");
     const level = getCharacterLevel(experience.amount);
-    console.log("XP:", experience.amount);
-    console.log("XP cap:", experience.cap);
+    //console.log("XP:", experience.amount);
+   // console.log("XP cap:", experience.cap);
 
-    
-    let current = experience.amount - getCapFloor(level - 1);
+    const cap = getCap(experience.amount);
 
+    let current = experience.amount - getCapByLevel(level - 1);
+    progressXPBar(current/cap*100);
 
     experience.characterLevelElement.innerHTML = level;
     experience.currentElement.innerHTML = current;
-    experience.capElement.innerHTML = getCap(experience.amount);
+    experience.capElement.innerHTML = cap;
     
+}
+
+function progressXPBar(rawPercent) {
+    console.log("XP Percent:", rawPercent);
+    console.log( document.getElementById("XPBar").style.width );
+    document.getElementById("XPBar").style.width = rawPercent+'%';
 }
