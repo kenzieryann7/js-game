@@ -1,7 +1,7 @@
 const capBase = 100;
 
 function getCharacterLevel(amount) {
-    //console.log("Calling getCharacterLevel");
+    console.log("Calling getCharacterLevel");
 
     let level = 1;
     let cap = capBase;
@@ -11,27 +11,27 @@ function getCharacterLevel(amount) {
         amount -= cap;
         cap = newCap(cap);
     }
-    //console.log("Level:", level);
+    console.log("Level:", level);
 
     return level;
       
 }
 
 function getCap(amount) { //byXP
-    //console.log("Calling getCharacterLevel");
+    console.log("Calling getCap");
     let cap = capBase;
 
     while (amount >= cap) {
         amount -= cap;
         cap = newCap(cap);
     }
-
+    console.log("XP Cap:", cap);
     return cap;
       
 }
 
 function getCapByLevel(level) { //log
-    //console.log("Calling getCharacterLevel");
+    console.log("Calling getCapByLevel");
 
     let runningCapTotal = 0;
 
@@ -53,7 +53,7 @@ function getCapByLevel(level) { //log
 }
 
 function newCap(_cap) {
-    //cap = cap * Math.LN10;
+
     let cap = Math.pow(_cap, 1.16); 
     cap = Math.round(cap);
     console.log("Cap: " + _cap + " > " + cap);
@@ -85,22 +85,34 @@ function renderExperience() {
 }
 
 function progressXPBar(newPercent) {
-    console.log("XP Percent:", newPercent);
+    console.log("XP Percent:", newPercent+'%');
 
     currentPercentage = document.getElementById("XPBar").style.width;
-    console.log(currentPercentage);
+    //console.log(currentPercentage);
     currentPercentage = parseInt(currentPercentage);
     if (currentPercentage == 100 || newPercent > currentPercentage) {
         document.getElementById("XPBar").style.width = newPercent+'%';
-
+        
     } else {
         document.getElementById("XPBar").style.width = 100+'%';
         setTimeout(function (){
             progressXPBar(newPercent);
         }, 1000)
+        levelUp();
     }
 
-    console.log( document.getElementById("XPBar").style.width );
+    //console.log( document.getElementById("XPBar").style.width );
     document.getElementById("percentage").innerHTML = Math.round(newPercent)+'%';
     
+}
+
+function levelUp() {
+    giveSkillPoints();
+}
+
+function giveSkillPoints() {
+
+    skillPoint.amount = skillPoint.amount + 5;
+
+    skillPoint.amountElement.innerHTML = skillPoint.amount;
 }

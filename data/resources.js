@@ -8,9 +8,7 @@ let gold = {
 
 let skillPoint = {
     amount: 0,
-    cap: 5,
-    amountElement: null,
-    capElement: null
+    amountElement: null
 };
 
 let stone = {
