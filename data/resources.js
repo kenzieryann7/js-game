@@ -21,7 +21,7 @@ let wood = {
     amountElement: null
 };
 
-let metal = {
+let ore = {
     amount: 0,
     amountElement: null
 };

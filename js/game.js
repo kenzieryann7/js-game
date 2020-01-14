@@ -6,9 +6,21 @@ function initialization() {
     gold.amountElement.innerHTML = gold.amount;
     gold.capElement.innerHTML = gold.cap;
 
+    // STONE
+    stone.amountElement = document.getElementById('stone');
+    stone.amountElement.innerHTML = stone.amount;
+
+    // WOOD
+    wood.amountElement = document.getElementById('wood');
+    wood.amountElement.innerHTML = wood.amount;
+
+    // ORE
+    ore.amountElement = document.getElementById('ore');
+    ore.amountElement.innerHTML = ore.amount;
+
     // SKILL POINTS
-    skillPoint.amountElement = document.getElementById('skillPoint');
-    skillPoint.amountElement.innerHTML = skillPoint.amount;
+    skillPoint.amountElement = document.getElementById('stone');
+    skillPoint.amountElement.innerHTML = stone.amount;
 
     // HEALTH SKILL  
     health.amountElement = document.getElementById('health');
@@ -32,7 +44,7 @@ function initialization() {
     experience.characterLevelElement = document.getElementById('characterLevel');
     //experience.amountElement.innerHTML = experience.amount;
     renderExperience();
-
+    gameLoop();
     
     console.log("initialized");
 }

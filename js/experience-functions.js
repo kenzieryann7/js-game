@@ -92,13 +92,13 @@ function progressXPBar(newPercent) {
     currentPercentage = parseInt(currentPercentage);
     if (currentPercentage == 100 || newPercent > currentPercentage) {
         document.getElementById("XPBar").style.width = newPercent+'%';
-        
+
     } else {
         document.getElementById("XPBar").style.width = 100+'%';
         setTimeout(function (){
             progressXPBar(newPercent);
+            levelUp();
         }, 1000)
-        levelUp();
     }
 
     //console.log( document.getElementById("XPBar").style.width );

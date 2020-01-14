@@ -38,6 +38,30 @@ function decreaseGold(amount) {
       
 }
 
+// INCREASE STONE
+function increaseStone(amount) {
+
+    stone.amount = stone.amount + amount;
+
+    stone.amountElement.innerHTML = stone.amount;
+}
+
+// INCREASE WOOD
+function increaseWood(amount) {
+    
+    wood.amount = wood.amount + amount;
+
+    wood.amountElement.innerHTML = wood.amount;
+}
+
+// INCREASE ORE
+function increaseOre(amount) {
+    
+    ore.amount = ore.amount + amount;
+
+    ore.amountElement.innerHTML = ore.amount;
+}
+
 // INCREASE SKILL POINTS (Skill points are earned by leveling up and are used to spend on the skill tree)
 function increaseSkill(amount) {
     console.log("Calling increaseSkill");
