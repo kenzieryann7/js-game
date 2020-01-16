@@ -147,6 +147,8 @@
 <div class="mb-2">
   <button type="button" class="btn btn-primary btn-lg ml-3 mt-3" onclick="runAction()">Run Action</button>
 
+<!-- Gold -->
+<button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="increaseGold(5)">Gold</button>
 
   <!-- Stone -->
   <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="setAction(quarryingAction)">Quarrying</button>
@@ -159,7 +161,7 @@
 
 </div>
 
-<!-- *** MATERIALS *** -->
+<!-- Materials Stats -->
 <div class="row ml-2">
     <div class="col-2">
         <table class="table table-striped table-dark">
@@ -184,10 +186,8 @@
             </tbody>
         </table>
     </div>
-  </div>
-
-
-<!-- Stats -->
+</div>
+<!-- Character Stats -->
 <div class="row ml-2">
     <div class="col-2">
       <table class="table table-striped table-dark">
@@ -213,12 +213,13 @@
       </table>
   </div>
 </div>
+<!-- Combat Stats-->
 <div class="row ml-2">
   <div class="col-2">
       <table class="table table-striped table-dark">
           <thead>
             <tr>
-              <th scope="col">Battle Stats</th>
+              <th scope="col">Combat Stats</th>
             </tr>
           </thead>
           <tbody>
@@ -238,7 +239,10 @@
       </table>
   </div>
 </div>
+
 </div>
+</div>
+
 
 <div class="col">
  <!-- Combat -->
@@ -259,13 +263,6 @@
 </div>
 </div>
 
-
-<!-- Gold -->
-<button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="increaseGold(5)">Gold</button>
-
-<p class="ml-3"> <br> <b>Gold:</b> <span id="gold">0</span>
-/ <span id="goldCap">10</span>
-</p>
 
 <!-- Skill Points -->
 

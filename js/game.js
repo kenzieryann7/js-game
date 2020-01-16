@@ -2,9 +2,7 @@
 function initialization() {
     // GOLD 
     gold.amountElement = document.getElementById('gold');
-    gold.capElement = document.getElementById('goldCap');
     gold.amountElement.innerHTML = gold.amount;
-    gold.capElement.innerHTML = gold.cap;
 
     // STONE
     stone.amountElement = document.getElementById('stone');

@@ -3,15 +3,9 @@
 //INCREASE GOLD (Used to upgrade your character, building, and to buy items) 
 function increaseGold(amount) {
     console.log("Calling increaseGold");
-    let tempAmount = gold.amount + amount;
 
-    if( tempAmount < gold.cap) {
-        gold.amount = tempAmount;   
-    } 
+    gold.amount = gold.amount + amount;
 
-    if (tempAmount >= gold.cap) {
-        gold.amount = gold.cap;
-    }
     gold.amountElement.innerHTML = gold.amount;
 
     console.log("Increased gold by 5");
@@ -23,15 +17,8 @@ function decreaseGold(amount) {
     
     console.log("Calling decreaseGold");
       
-    let tempAmount = gold.amount - amount;
+    gold.amount = gold.amount - amount;
 
-    if( tempAmount < gold.cap) {
-        gold.amount = tempAmount;   
-    } 
-
-    if (tempAmount >= gold.cap) {
-        gold.amount = gold.cap;
-    }
     gold.amountElement.innerHTML = gold.amount;
 
     console.log("Decreased gold by 5");
