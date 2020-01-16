@@ -107,12 +107,12 @@ function progressXPBar(newPercent) {
 }
 
 function levelUp() {
-    giveSkillPoints();
+    giveSkillPoints(5);
 }
 
-function giveSkillPoints() {
+function giveSkillPoints(amount) {
 
-    skillPoint.amount = skillPoint.amount + 5;
+    skillPoint.amount = skillPoint.amount + amount;
 
-    skillPoint.amountElement.innerHTML = skillPoint.amount;
+    document.getElementById("skillPoint").innerHTML = skillPoint.amount;
 }

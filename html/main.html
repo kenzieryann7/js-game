@@ -6,6 +6,7 @@
 <script src="../data/upgrades.js"></script>
 <script src="../data/experience.js"></script>
 <script src="../data/actions.js"></script>
+<script src="../data/mobs.js"></script>
 <!-- JS Folder-->
 <script src="../js/game.js"></script>
 <script src="../js/skill-functions.js"></script>
@@ -13,6 +14,7 @@
 <script src="../js/experience-functions.js"></script>
 <script src="../js/actions-functions.js"></script>
 <script src="../js/gameloop.js"></script>
+<script src="../js/combat-functions.js"></script>
 
 <!-- Bootstrap CSS URL-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -140,12 +142,11 @@
   <span id="currentXP">0</span> / <span id="capXP">10</span> 
   <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="increaseExperience(25)">XP</button>
 </p>
-
+<div class="row">
+  <div class="col">
 <div class="mb-2">
   <button type="button" class="btn btn-primary btn-lg ml-3 mt-3" onclick="runAction()">Run Action</button>
 
-  <!-- Combat -->
-  <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="setAction(combatAction)">Combat</button>
 
   <!-- Stone -->
   <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="setAction(quarryingAction)">Quarrying</button>
@@ -223,7 +224,7 @@
           <tbody>
             <tr>
               <td>Total Mobs Killed:</td>
-              <td>0</td>
+              <td id="mobsKilled">0</td>
             </tr>
             <tr>
               <td>Total Dungeons Completed:</td>
@@ -237,6 +238,27 @@
       </table>
   </div>
 </div>
+</div>
+
+<div class="col">
+ <!-- Combat -->
+ <div class="row">
+ <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="setAction(combatAction)">Combat</button>
+</div>
+<div class="row">
+ <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="setAction(combatAction), setMob(goblin)">Goblin</button>
+ <span></span>
+</div>
+ <div class="row">
+ <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="setAction(combatAction), setMob(skeleton)">Skeleton</button>
+</div>
+ <div class="row">
+ <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="setAction(combatAction), setMob(rat)">Rat</button>
+</div>
+
+</div>
+</div>
+
 
 <!-- Gold -->
 <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="increaseGold(5)">Gold</button>

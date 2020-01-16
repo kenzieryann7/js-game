@@ -33,6 +33,7 @@ combatAction.run = () => {
     increaseGold(5);
     increaseExperience(3);
     document.getElementById("actionType").innerHTML = combatAction.name;
+    increaseTotalMobsKilled(1);
 };
 
 combatAction.name = "Combat";
