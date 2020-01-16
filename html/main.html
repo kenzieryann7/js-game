@@ -3,10 +3,18 @@
 <!-- JS Files -->
 <!-- Data Folder-->
 <script src="../data/resources.js"></script>
+<script src="../data/upgrades.js"></script>
+<script src="../data/experience.js"></script>
+<script src="../data/actions.js"></script>
+<script src="../data/mobs.js"></script>
 <!-- JS Folder-->
 <script src="../js/game.js"></script>
 <script src="../js/skill-functions.js"></script>
 <script src="../js/resource-functions.js"></script>
+<script src="../js/experience-functions.js"></script>
+<script src="../js/actions-functions.js"></script>
+<script src="../js/gameloop.js"></script>
+<script src="../js/combat-functions.js"></script>
 
 <!-- Bootstrap CSS URL-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -32,6 +40,51 @@
           border: 3px solid black;
           border-radius: 5px;
         }
+        input {
+          text-align: center;
+        }
+        .skill-label {
+          width: 100px;
+        }
+        .stat-label {
+          width: 150px;
+        }
+        #input-size {
+          width: 150px
+        }
+        #percentage {
+          color: black;
+          font-weight: bold;
+        }
+        .navbar-info {
+          height: 35px;
+        }
+        .navbar-main {
+          height: 50px;
+          font-family: candara;
+          color: whitesmoke;
+        }
+        .gold {
+          font-family: candara;
+          color: goldenrod;
+          font-weight: bold;
+        }
+        .level {
+          font-family: candara;
+          color: whitesmoke;
+          font-weight: bold;
+        }
+        .pages {
+          font-family: candara;
+          font-size: 20px;
+          color: whitesmoke;
+          font-weight: bold;
+        }
+        .actions {
+          color: black;
+          font-weight: bold;
+        }
+       
 </style>
 
 <head>
@@ -39,53 +92,223 @@
 </head>
 
 <body onload="initialization()">
-        <!-- MAIN NAV BAR -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a class="navbar-brand" href="index.html"><h1>Risen RPG</h1></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                  <ul class="navbar-nav">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="main.html">Character</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="crafting.html">Crafting</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="attack.html">Attack</a>
-                    </li>
-                  </ul>
-                </div>
-        </nav>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark navbar-info">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mt-3">
+            <li class="nav-item level mr-5">
+              <b>Level:</b> <span id="characterLevel">0</span>
+            </li>
+            <li class="nav-item">
+              <p class="gold">Gold:</b> <span class="text-white" id="gold">0</span>
+            </li>
+          </ul>
+        </div>
+    </nav>
+  <!-- MAIN NAV BAR -->
+  <nav class="navbar navbar-main navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="main.html"><h1>Risen RPG</h1></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav pages">
+        <li class="nav-item active">
+          <a class="nav-link" href="main.html">Character</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="crafting.html">Crafting</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="attack.html">Attack</a>
+        </li>
+      </ul>
+    </div>
+</nav>
+
+<!-- XP Bar-->
+<div class="progress mb-1">
+  <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary" id="XPBar" style="width:0px"></div>
+  <span id="percentage" class="justify-content-center d-flex position-absolute w-100"></span>
+</div>
+
+<!-- Action Bar-->
+<div class="progress">
+  <div class="progress-bar progress-bar-animated bg-success" id="actionBar" style="width: 0px"></div>
+  <span id="actionType" class="justify-content-center d-flex position-absolute w-100 actions"></span>
+</div>
+
+<!-- Character Level -->
+<p class="ml-3"> <br> 
+  <span id="currentXP">0</span> / <span id="capXP">10</span> 
+  <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="increaseExperience(25)">XP</button>
+</p>
+<div class="row">
+  <div class="col">
+<div class="mb-2">
+  <button type="button" class="btn btn-primary btn-lg ml-3 mt-3" onclick="runAction()">Run Action</button>
 
 <!-- Gold -->
 <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="increaseGold(5)">Gold</button>
 
-<p class="ml-3"> <br> <b>Gold:</b> <span id="gold">0</span>
-/ <span id="goldCap">10</span>
-</p>
+  <!-- Stone -->
+  <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="setAction(quarryingAction)">Quarrying</button>
+
+  <!-- Wood -->
+  <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="setAction(woodcuttingAction)">Woodcutting</button>
+
+  <!-- Ore -->
+  <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="setAction(miningAction)">Mining</button>
+
+</div>
+
+<!-- Materials Stats -->
+<div class="row ml-2">
+    <div class="col-2">
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr>
+                  <th scope="col">Materials</th>
+                </tr>
+              </thead>
+            <tbody>
+              <tr>
+                <td>Stone:</td>
+                <td id="stone">0</td>
+              </tr>
+              <tr>
+                <td>Wood:</td>
+                <td id="wood">0</td>
+              </tr>
+              <tr>
+                <td>Ore:</td>
+                <td id="ore">0</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Character Stats -->
+<div class="row ml-2">
+    <div class="col-2">
+      <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Character Stats</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Name:</td>
+              <td>...</td>
+            </tr>
+            <tr>
+              <td>Total XP:</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>Age:</td>
+              <td>0</td>
+            </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+<!-- Combat Stats-->
+<div class="row ml-2">
+  <div class="col-2">
+      <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Combat Stats</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Total Mobs Killed:</td>
+              <td id="mobsKilled">0</td>
+            </tr>
+            <tr>
+              <td>Total Dungeons Completed:</td>
+              <td>0</td>
+            </tr>
+            <tr>
+                <td>Total Deaths:</td>
+                <td>0</td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>
+
+</div>
+</div>
+
+
+<div class="col">
+ <!-- Combat -->
+ <div class="row">
+ <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="setAction(combatAction)">Combat</button>
+</div>
+<div class="row">
+ <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="setAction(combatAction), setMob(goblin)">Goblin</button>
+ <span></span>
+</div>
+ <div class="row">
+ <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="setAction(combatAction), setMob(skeleton)">Skeleton</button>
+</div>
+ <div class="row">
+ <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="setAction(combatAction), setMob(rat)">Rat</button>
+</div>
+
+</div>
+</div>
+
 
 <!-- Skill Points -->
-<button type="button" class="btn btn-info btn-lg ml-3 mt-3" onclick="increaseSkill(5)">Skill Point</button>
-<p class="ml-3"> <br ml-3> <b>Skill Points:</b> <span id="skill">0</span>
-  / <span id="skillCap">10</span>
-</p>
+
+<div class="row ml-2">
+  <div class="col-3">
+    <span class="d-block p-2 bg-dark text-white text-center"><b>Skill Points:</b> <span id="skillPoint">0</span></span>
+
+<!-- Skills -->
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text alert-dark skill-label" id="">Health</span>
+            </div>
+            <input type="text" placeholder=0 class="form-control" id="health" value="0" readonly>
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button" onclick="buySkillPoint(health)">+</button>
+            </div>
+            
+  
+            <div class="input-group-prepend">
+                <span class="input-group-text alert-dark skill-label" id="">Strength</span>
+            </div>
+            <input type="text" placeholder=0 class="form-control" id="strength" value="0" readonly>
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button" onclick="buySkillPoint(strength)">+</button>
+            </div>
+  
+            <div class="input-group-prepend">
+                <span class="input-group-text alert-dark skill-label" id="">Stamina</span>
+            </div>
+            <input type="text" placeholder=0 class="form-control" id="stamina" value="0" readonly>
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button" onclick="buySkillPoint(stamina)">+</button>
+            </div>
+  
+            <div class="input-group-prepend">
+                <span class="input-group-text alert-dark skill-label" id="">Defense</span>
+            </div>
+            <input type="text" placeholder=0 class="form-control" id="defense" value="0" readonly>
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button" onclick="buySkillPoint(defense)">+</button>
+            </div>
+        </div>
+    </div>
+  </div>
 
 <hr>
-
-<!-- Health Skill-->
-<p class="ml-3"> <br> <b>Health:</b> <span id="health">0</span> <button type="button" class="btn btn-warning btn-sm ml-3 mt-3" onclick="increaseHealth(1), decreaseSkill(1)">+</button></p> 
-
-<!-- Strength Skill-->
-<p class="ml-3"> <br> <b>Strength:</b> <span id="strength">0</span> <button type="button" class="btn btn-warning btn-sm ml-3 mt-3" onclick="increaseStrength(1), decreaseSkill(1)">+</button></p>
-
-<!-- Stamina Skill-->
-<p class="ml-3"> <br> <b>Stamina:</b> <span id="stamina">0</span> <button type="button" class="btn btn-warning btn-sm ml-3 mt-3" onclick="increaseStamina(1), decreaseSkill(1)">+</button></p>
-
-<!-- Defense Skill-->
-<p class="ml-3"> <br> <b>Defense:</b> <span id="defense">0</span> <button type="button" class="btn btn-warning btn-sm ml-3 mt-3" onclick="increaseDefense(1), decreaseSkill(1)">+</button></p>
 
 <!-- Combo -->
 <button type="button" class="btn btn-success btn-lg ml-3 mt-3" onclick="increaseSkill(10), increaseGold(10)">Combo Button</button>

@@ -6,29 +6,7 @@ let gold = {
     capElement: null
 };
 
-let skill = {
-    amount: 0,
-    cap: 5,
-    amountElement: null,
-    capElement: null
-};
-
-let health = {
-    amount: 0,
-    amountElement: null
-};
-
-let strength = {
-    amount: 0,
-    amountElement: null
-};
-
-let stamina = {
-    amount: 0,
-    amountElement: null
-};
-
-let defense = {
+let skillPoint = {
     amount: 0,
     amountElement: null
 };
@@ -43,7 +21,7 @@ let wood = {
     amountElement: null
 };
 
-let metal = {
+let ore = {
     amount: 0,
     amountElement: null
 };

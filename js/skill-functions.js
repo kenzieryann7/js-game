@@ -1,49 +1,28 @@
 // Skills that increase the characters stats by a certain percentage. 1 skill point = 10%, 4 skill points = 40%, etc..
 
-// INCREASE HEALTH 
-function increaseHealth() {
-    console.log("Calling increaseHealth");
+// USE SKILL POINTS
+function buySkillPoint( skill ) {
 
-    health.amount++;
+    console.log("Calling buySkillPoint");
 
-    health.amountElement.innerHTML = health.amount;
+    const price = 1;
 
-    console.log("Increased health by 1");
-      
-}
+    if (skillPoint.amount < price) {
+        console.log("Not enough skill points");
+        return false;
+    }
 
-// INCREASE STRENGTH
-function increaseStrength() {
-    console.log("Calling increaseStrength");
+    // Equation to subtract 1 skill point
+    skillPoint.amount = skillPoint.amount - price;
+    console.log("Skill equation calculated:", skillPoint.amount);
     
-    strength.amount++;
+    // DOM Element for skill points
+    document.getElementById('skillPoint').innerHTML = skillPoint.amount;
 
-    strength.amountElement.innerHTML = strength.amount;
+    console.log("Spent 1 skill point");
 
-    console.log("Increased strength by 1");
-      
+    // Increasing skills
+    skill.amount += 1;
+    skill.amountElement.value = skill.amount;
 }
 
-// INCREASE STAMINA
-function increaseStamina() {
-    console.log("Calling increaseStamina");
-    
-    stamina.amount++;
-
-    stamina.amountElement.innerHTML = stamina.amount;
-
-    console.log("Increased stamina by 1");
-      
-}
-
-// INCREASE DEFENSE
-function increaseDefense() {
-    console.log("Calling increaseDefense");
-    
-    defense.amount++;
-
-    defense.amountElement.innerHTML = defense.amount;
-
-    console.log("Increased defense by 1");
-      
-}

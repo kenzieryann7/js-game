@@ -2,43 +2,47 @@
 function initialization() {
     // GOLD 
     gold.amountElement = document.getElementById('gold');
-    gold.capElement = document.getElementById('goldCap');
     gold.amountElement.innerHTML = gold.amount;
-    gold.capElement.innerHTML = gold.cap;
+
+    // STONE
+    stone.amountElement = document.getElementById('stone');
+    stone.amountElement.innerHTML = stone.amount;
+
+    // WOOD
+    wood.amountElement = document.getElementById('wood');
+    wood.amountElement.innerHTML = wood.amount;
+
+    // ORE
+    ore.amountElement = document.getElementById('ore');
+    ore.amountElement.innerHTML = ore.amount;
 
     // SKILL POINTS
-    skill.amountElement = document.getElementById('skill');
-    skill.capElement = document.getElementById('skillCap');
-    skill.amountElement.innerHTML = skill.amount;
-    skill.capElement.innerHTML = skill.cap;
+    skillPoint.amountElement = document.getElementById('stone');
+    skillPoint.amountElement.innerHTML = stone.amount;
 
     // HEALTH SKILL  
     health.amountElement = document.getElementById('health');
-    health.amountElement.innerHTML = health.amount;
-    
+    health.amountElement.value = health.amount;
+
     // STRENGTH SKILL  
     strength.amountElement = document.getElementById('strength');
-    strength.amountElement.innerHTML = strength.amount;
+    strength.amountElement.value = strength.amount;
 
     // STAMINA SKILL  
     stamina.amountElement = document.getElementById('stamina');
-    stamina.amountElement.innerHTML = stamina.amount;
+    stamina.amountElement.value = stamina.amount;
     
     // DEFENSE SKILL  
     defense.amountElement = document.getElementById('defense');
-    defense.amountElement.innerHTML = defense.amount;
+    defense.amountElement.value = defense.amount;
 
-    // STONE  
-    health.amountElement = document.getElementById('health');
-    health.amountElement.innerHTML = health.amount;
+    // EXPERIENCE
+    experience.currentElement = document.getElementById('currentXP');
+    experience.capElement = document.getElementById('capXP');
+    experience.characterLevelElement = document.getElementById('characterLevel');
+    //experience.amountElement.innerHTML = experience.amount;
+    renderExperience();
+    gameLoop();
     
-    // WOOD  
-    strength.amountElement = document.getElementById('strength');
-    strength.amountElement.innerHTML = strength.amount;
-
-    // METAL 
-    stamina.amountElement = document.getElementById('stamina');
-    stamina.amountElement.innerHTML = stamina.amount;
-
     console.log("initialized");
 }
