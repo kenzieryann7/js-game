@@ -108,6 +108,7 @@ function progressXPBar(newPercent) {
 
 function levelUp() {
     giveSkillPoints(5);
+    $('#modalLevelUp').modal('show')
 }
 
 function giveSkillPoints(amount) {

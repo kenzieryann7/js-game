@@ -5,6 +5,7 @@ let woodcuttingAction = {};
 let miningAction = {};
 let combatAction = {};
 
+// QUARRYING
 quarryingAction.run = () => {
     increaseStone(5);
     increaseExperience(3);
@@ -13,6 +14,7 @@ quarryingAction.run = () => {
 
 quarryingAction.name = "Quarrying";
 
+// WOODCUTTING
 woodcuttingAction.run = () => {
     increaseWood(5);
     increaseExperience(3);
@@ -21,6 +23,7 @@ woodcuttingAction.run = () => {
 
 woodcuttingAction.name = "Woodcutting";
 
+// MINING
 miningAction.run = () => {
     increaseOre(5);
     increaseExperience(3);
@@ -29,6 +32,7 @@ miningAction.run = () => {
 
 miningAction.name = "Mining";
 
+// COMBAT
 combatAction.run = () => {
     increaseGold(5);
     increaseExperience(3);

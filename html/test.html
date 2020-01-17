@@ -91,9 +91,25 @@
             font-family: candara;
             color: whitesmoke;
             background-color: black;
+            border: 1px solid rgb(73, 71, 71);
         }
         .borders {
             border: 1px solid black;
+        }
+        .textStyle {
+            color: black;
+        }
+        .accordionBackground {
+            background-color: slategray;
+            color: black;
+            font-family: candara;
+            border: 1px solid rgb(73, 71, 71);
+        }
+        .accordionTab {
+            background-color: black;
+            color: whitesmoke;
+            font-family: candara;
+            border: 1px solid rgb(73, 71, 71);
         }
        
 </style>
@@ -124,7 +140,7 @@
 <div class="row">
     <div class="col">
         <!-- Action Bar-->
-        <div class="progress">
+        <div class="progress borders">
             <div class="progress-bar progress-bar-animated bg-success" id="actionBar" style="width: 0px"></div>
             <span id="actionType" class="justify-content-center d-flex position-absolute w-100 actions"></span>
         </div>
@@ -133,7 +149,7 @@
 
 <div class="row">
 
-    <!-- *** COL 1 *** -->
+    <!-- *** LEFT COL 1 *** -->
     <div class="col-2 borders">
         <!-- SKILL POINTS -->
             <span class="d-block p-2 bg-dark text-white text-center"><b>Skill Points:</b> <span id="skillPoint">0</span></span>
@@ -242,7 +258,7 @@
             </table>
         </div>
         
-    <!-- *** COL 2 *** -->
+    <!-- *** MIDDLE COL 2 *** -->
     <div class="col-7 p-0 borders">
         <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
             <li class="nav-item">
@@ -256,35 +272,142 @@
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
-            <!-- GATHERING -->
+            <!-- *** GATHERING *** -->
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <!-- Stone -->
-                <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="setAction(quarryingAction)">Quarrying</button>
-
-                <!-- Wood -->
-                <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="setAction(woodcuttingAction)">Woodcutting</button>
-
-                <!-- Ore -->
-                <button type="button" class="btn btn-warning btn-lg ml-3 mt-3" onclick="setAction(miningAction)">Mining</button>
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link navTabs active" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Mining</a>
+                    <a class="nav-link navTabs" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Woodcutting</a>
+                    <a class="nav-link navTabs" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Quarrying</a>                    
+                </div>
+                <div class="tab-content" id="v-pills-tabContent">
+                    <!-- Ore -->
+                    <div class="tab-pane fade show active textStyle" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                        Gather ore with a pickaxe.
+                        <button type="button" class="btn btn-primary btn-lg ml-3 mt-3" onclick="setAction(miningAction)">Mining</button>
+                    </div>
+                    <!-- Wood -->
+                    <div class="tab-pane fade textStyle" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                        Gather wood with an axe. 
+                        <button type="button" class="btn btn-primary btn-lg ml-3 mt-3" onclick="setAction(woodcuttingAction)">Woodcutting</button>
+                    </div>
+                    <!-- Stone -->
+                    <div class="tab-pane fade textStyle" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"> 
+                        Gather stone with a hammer.
+                        <button type="button" class="btn btn-primary btn-lg ml-3 mt-3" onclick="setAction(quarryingAction)">Quarrying</button>
+                    </div> 
+                </div> 
             </div>
-
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-
+            <!-- *** CRAFTING *** -->
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link active navTabs" id="v-pills-alchemy-tab" data-toggle="pill" href="#v-pills-alchemy" role="tab" aria-controls="v-pills-alchemy" aria-selected="true">Alchemy</a>
+                        <a class="nav-link navTabs" id="v-pills-blacksmithing-tab" data-toggle="pill" href="#v-pills-blacksmithing" role="tab" aria-controls="v-pills-blacksmithing" aria-selected="false">Blacksmithing</a>
+                        <a class="nav-link navTabs" id="v-pills-disenchanting-tab" data-toggle="pill" href="#v-pills-disenchanting" role="tab" aria-controls="v-pills-disenchanting" aria-selected="false">Disenchanting</a>
+                        <a class="nav-link navTabs" id="v-pills-jewelcrafting-tab" data-toggle="pill" href="#v-pills-jewelcrafting" role="tab" aria-controls="v-pills-jewelcrafting" aria-selected="false">Jewelcrafting</a>
+                    </div>
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <div class="tab-content" id="v-pills-tabContent">
+                            <!-- Alchemy -->
+                            <div class="tab-pane fade show active textStyle" id="v-pills-alchemy" role="tabpanel" aria-labelledby="v-pills-alchemy-tab">
+                                You can craft potions and elixirs. Craft potions to gain back health quicker rather than waiting for you health to replenish over time. Craft elixirs to increase XP gain and increase material gain when gathering.
+                            </div>
+                            <!-- Blacksmithing -->
+                            <div class="tab-pane fade textStyle" id="v-pills-blacksmithing" role="tabpanel" aria-labelledby="v-pills-blacksmithing-tab">
+                                You can craft and upgrade your armor and weapons. You can also craft sockets into these items that you can later socket jewels into to increase your stats.
+                            </div>
+                            <!-- Disenchanting -->
+                            <div class="tab-pane fade textStyle" id="v-pills-disenchanting" role="tabpanel" aria-labelledby="v-pills-disenchanting-tab">
+                                You can disenchant old armor and weapons to gain components and dust that is used to craft armor and weapons.
+                            </div>
+                            <!-- Jewelcrafting -->
+                            <div class="tab-pane fade textStyle" id="v-pills-jewelcrafting" role="tabpanel" aria-labelledby="v-pills-jewelcrafting-tab">
+                                You can craft jewels and trinkets that help increase stats. You can craft jewels and socket them into your armor and weapons. Trinkets can be equipped to immediately increase your stats. You can equip two trinkets at a time.
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+            <!-- *** COMBAT *** -->
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <div id="accordion">
+                    <div class="card accordionTab">
+                        <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link accordionTab" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Area 1
+                            </button>
+                        </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body accordionBackground">
+                            <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="setAction(combatAction), setMob(goblin)">Goblin</button>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="card accordionTab">
+                        <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed accordionTab" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Area 2
+                            </button>
+                        </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body accordionBackground">
+                            <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="setAction(combatAction), setMob(skeleton)">Skeleton</button>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="card accordionTab">
+                        <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed accordionTab" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Area 3
+                            </button>
+                        </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body accordionBackground">
+                            <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="setAction(combatAction), setMob(rat)">Rat</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
                 <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="setAction(combatAction)">Combat</button>
-                <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="setAction(combatAction), setMob(goblin)">Goblin</button>
-                <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="setAction(combatAction), setMob(skeleton)">Skeleton</button>
-                <button type="button" class="btn btn-danger btn-lg ml-3 mt-3" onclick="setAction(combatAction), setMob(rat)">Rat</button>
             </div>
         </div>
     </div>
 
-    <!-- *** COL 3 *** -->
+    <!-- *** RIGHT COL 3 *** -->
     <div class="col-3 borders">
         
     </div>
 </div>
 
+<!-- *** EXTRAS *** -->
+<div class="modal" id="modalLevelUp" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Congrats! You leveled up.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Now Available: </p>
+        <p>Item 1</p>
+        <p>Item 2</p>
+        <p>Item 3</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- Character Level -->
 <p class="ml-3"> <br> 
     <span id="currentXP">0</span> / <span id="capXP">10</span> 
