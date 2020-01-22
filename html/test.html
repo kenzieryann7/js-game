@@ -262,7 +262,10 @@
     <div class="col-7 p-0 borders">
         <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link navTabs active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Gathering</a>
+                <a class="nav-link navTabs active" id="inventory-tab" data-toggle="tab" href="#inventory" role="tab" aria-controls="inventory" aria-selected="true">Inventory</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link navTabs" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Gathering</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link navTabs" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Crafting</a>
@@ -272,8 +275,19 @@
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
+            <!-- *** INVENTORY *** -->
+            <div class="tab-pane fade show active" id="inventory" role="tabpanel" aria-labelledby="inventory-tab">
+                <div class="row">
+                    <div class="col">
+                        <span>Inventory</span>
+                    </div>
+                    <div class="col">
+                        <span>Character</span>
+                    </div>
+                </div>
+            </div>
             <!-- *** GATHERING *** -->
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link navTabs active" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Mining</a>
                     <a class="nav-link navTabs" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Woodcutting</a>
